@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>JS Bin</title>
+</head>
+<body>
+<button onClick="callFacebookAuth()">Call Facebook</button>
+
+<script>
+    /*Function to get json response from Facebook*/
+    function socialAuth(jsonString){
+      console.log(jsonString);
+    }
+
+    function callFacebookAuth(){
+      if(isNativeApp() != null){
+        console.log("IN IF isNativeApp");
+        NativeAppFunction.callSocialAuth('facebook');
+      }
+      else{
+        /*Code for Facebook Auth in Web*/
+        console.log("Calling in Web");
+      }
+
+    }
+
+    function isNativeApp() {
+        return navigator.userAgent.toLowerCase().match(/android.*applewebkit(?=.*version)/)
+    }
+  </script>
+</body>
